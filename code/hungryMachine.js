@@ -1,6 +1,5 @@
 const { createMachine } = require("xstate");
-
-export const machine = createMachine({
+const hungryMachine = createMachine({
   context: {},
   id: "idle",
   initial: "idle",

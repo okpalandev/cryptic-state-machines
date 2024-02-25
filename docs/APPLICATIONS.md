@@ -13,7 +13,7 @@ Within the realm of automata theory, there are two main types of state machine.A
    This state machine is conserned with **events**, amd is determinsitic by nature as it transition for one event to another. This is useful when modelling networking protocol which are event driven.
 
 3) Cryptic State Machine:
-   A cryptic state machine is a state machine which on encountering  the same **state** yield a different **transistions**. Unlike a typical **behavioural state** machine is determinstic by nature yielding the same **transistion** for the same **state**.This is a useful concepts as it is derived by how cryptic language worksThe means a cryptic state machine has loops.. By definition,A cryptic language has one obvious meaning which can be derived very easily,and another meaning which is harder to understand/ parse contextually. 
+   A cryptic state machine is a state machine which on encountering  the same **state** yield a different **transistions**. Unlike a typical **behavioural state** machine is determinstic by nature yielding the same **transistion** for the same **state**.This is a useful concepts as it is derived by how cryptic language works.The means a cryptic state machine has loops.. By definition,A cryptic language has one obvious meaning which can be derived very easily,and another meaning which is harder to understand/ parse contextually. 
    for example:
    
    - "I never said she stole my money" has seven different meanings depending on the stressed word.
