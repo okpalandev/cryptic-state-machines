@@ -1,9 +1,7 @@
 # Application of Cryptic State Machines
-
 ## by Nnamdi Michael Okpala.
 
 ### Introduction:
-
 Within the realm of automata theory, there are two main types of state machine.A state machine is an abstract machine that move from one state to another till it get to the end.
 
 1) Behavioural State Machine:
@@ -28,7 +26,6 @@ The cryptic state machine can be examplified as using the state machine diagrams
 ![Another Hungry Machine](https://stately.ai/registry/machines/9fc7f8f8-fccd-4475-b689-5e21cdd20be0.dark.png "Hungry Machine - A cryptic state machiine")
 
 
-
 ### Unethical Applciation of Cryptic State Machines
 Consequently, Cryptic State Machine can be used in rogue manner in which as states the initial state is changed during the runtime to a rougue state which can then be used to enumerate a different set of states
 which has a mallicisous implementation.
@@ -37,7 +34,7 @@ This demonstration  requires the **initial** state to be changed,and would resul
 
 For example, Shell Code can be executed in a **rouge** state.
 
-[Rouge State Example](../assets/rougestate.png "Rouge State Example")  
+[Rouge Rouge Example](../assets/rougemachine.png "Rouge Machine Example")  
 
 This can be used to perform various unethical activities such as:
 
