@@ -12,6 +12,7 @@ typedef enum {
     FULL_STATE
 } State;
 
+
 // Define state functions
 void state_idle(int event);
 void state_hungry(int event);
