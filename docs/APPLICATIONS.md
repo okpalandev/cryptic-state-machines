@@ -21,9 +21,12 @@ Within the realm of automata theory, there are two main types of state machine.A
 
 ### Diagram for a Cryptic State Machine
 
-A hungry individual who will still remain **hungry** in the state **hungry** state until their have eaten enough entering a **full** state.This hungry state could  be two or more times meaning the NFA-to-DFA of a cryptic state machine would contains cyclic loops to the node itself for this given instance.
+A hungry individual who will still remain **hungry** in the state **hungry** state until their have eaten enough entering a **full** state.This hungry state could  be two or more times meaning the NFA-to-DFA of a cryptic state machine would contains cyclic loops to the node itself for this given instance.A cyclic state diagram is non-determinstic.
 
-The cryptic state machine can be examplified as using the state machine diagram:
-
+The cryptic state machine can be examplified as using the state machine diagrams:
 ![Hungry Machine](../assets/hungrymachine.png "Hungry Machine - A Cryptic State Machine")
+
+
+
+
 
