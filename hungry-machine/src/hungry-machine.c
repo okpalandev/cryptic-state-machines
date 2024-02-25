@@ -1,84 +1,72 @@
 #include <stdio.h>
-
-// Defining the states
+// Define the events
 typedef enum {
-  idle,
-  hungry,
-  full
-} State;
-
-// Defining the events
-typedef enum {
-  EAT,
-  FULL
+    EAT,
+    FULL
 } Event;
 
-// Defining the transitions
-typedef struct {
-  State src_state;
-  Event event;
-  State dst_state;
-} Transition;
+// Define the states
+typedef enum {
+    IDLE,
+    HUNGRY,
+    FULL_STATE
+} State;
 
+// Define state functions
+void state_idle(int event);
+void state_hungry(int event);
+void state_full(int event);
 
-int main() {
-  // Creating transitions for the cryptic state machine
-  Transition transition_table[] = {
-    {idle, EAT, hungry},
-    {hungry, EAT, idle},
-    {hungry, FULL, full}
-  };
-  
-  // Defining the initial state and current state
-  State initial_state = idle;
-  State current_state = idle;
+// Define the current state pointer
+void (*state)(int) = state_idle;
 
-  // Infinitely looping through the cryptic machine
-  while (1) {
-    // Reading user input as event
-    Event event;
-    printf("Enter event (0 for EAT, 1 for FULL): ");
-    
-    scanf("%d", &event);
-
-    // Checking for valid events
-    if (event == EAT || event == FULL) {
-      // Looping through the transition table to find the correct transition
-      for (int i = 0; i < sizeof(transition_table) / sizeof(Transition); i++) {
-        // Checking for the current state and event to determine the next state
-        if (transition_table[i].src_state == current_state && transition_table[i].event == event) {
-          current_state = transition_table[i].dst_state;
-          break;
-        }
-      }
-      // Printing the current state
-
-      printf("Current state: %d\n", current_state);
-      // Executing code based on the current state
-      switch (current_state) {
-        case idle:
-          // Code for idle state
-          printf("You are in the idle state\n");
-          break;
-        case hungry:
-          // Code for hungry state
-          printf("You are hungry\n");
-          break;
-        case full:
-          // Code for full state
-          printf("You are full now!\n");
-          // Executing additional code for full state
-          printf("Executing additional code for full state\n");
-          break;
-      }
+// State transition functions
+void state_idle(int event) {
+    if (event == EAT) {
+        printf("Transitioning from IDLE to HUNGRY\n");
+        state = state_hungry;
     }
-    else {
-      printf("Invalid event");
-      break;
-    }
-  }
-
-  return 0;
 }
 
+void state_hungry(int event) {
+    if (event == EAT) {
+        printf("Transitioning from HUNGRY to IDLE\n");
+        state = state_idle;
+    } else if (event == FULL) {
+        printf("Transitioning from HUNGRY to FULL\n");
+        state = state_full;
+    }
+}
 
+void state_full(int event) {
+    if (event == FULL) {
+        printf("Transitioning from FULL to IDLE\n");
+        state = state_idle;
+    }
+}
+
+int main() {
+    // Initial state
+    state = state_idle;
+
+    // Infinitely looping through the state machine
+
+    while (1) {
+        // Reading user input as event
+        int event;
+        printf("Enter event (0 for EAT, 1 for FULL): ");
+        scanf("%d", &event);
+
+        // Checking for valid events
+        if (event == EAT || event == FULL) {
+            // Dispatching the event to the current state function
+            state(event);
+        } else {
+            printf("Invalid event\n");
+            break;
+        }
+      
+    }
+    
+    return 0;
+}
