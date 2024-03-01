@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 // Define the events
 typedef enum {
     EAT,
@@ -51,7 +53,7 @@ int main() {
     state = state_idle;
 
     // Infinitely looping through the state machine
-
+    
     while (1) {
         // Reading user input as event
         int event;
@@ -66,7 +68,6 @@ int main() {
             printf("Invalid event\n");
             break;
         }
-      
     }
     
     return 0;
